@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Program Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Program Manager</h1>
+    <p class="subtitle">Manage broadcast programs (saved locally in your browser)</p>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <div class="search-wrap">
+        <label for="searchInput" class="visually-hidden">Search programs</label>
+        <input id="searchInput" type="search" placeholder="Search programs by name..." />
+      </div>
+      <div class="status" id="statusMessage" aria-live="polite"></div>
+    </section>
+
+    <section class="form-section">
+      <h2 id="formTitle">Add Program</h2>
+      <form id="programForm" novalidate>
+        <input type="hidden" id="programId" />
+
+        <label for="name">Program Name</label>
+        <input id="name" name="name" type="text" required />
+        <div class="error" id="error-name"></div>
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="3" required></textarea>
+        <div class="error" id="error-description"></div>
+
+        <label for="duration">Duration (minutes)</label>
+        <input id="duration" name="duration" type="number" min="1" max="300" required />
+        <div class="error" id="error-duration"></div>
+
+        <label for="timeSlot">Time Slot</label>
+        <input id="timeSlot" name="timeSlot" type="time" required />
+        <div class="error" id="error-timeSlot"></div>
+
+        <label for="channel">Channel</label>
+        <input id="channel" name="channel" type="text" required />
+        <div class="error" id="error-channel"></div>
+
+        <div class="form-actions">
+          <button id="submitBtn" type="submit" disabled>Add Program</button>
+          <button id="cancelEditBtn" type="button" class="secondary hidden">Cancel Edit</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="list-section">
+      <h2>Programs</h2>
+      <div id="programList" class="program-list"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>Built with ♥ — data saved to <code>localStorage</code></small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
