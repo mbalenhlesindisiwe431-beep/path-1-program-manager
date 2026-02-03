@@ -4,7 +4,7 @@ function changeBg() {
         "#" + Math.floor(Math.random() * 16777215).toString(16);
 }
 
-// Exercise 2: Simple To-Do List
+// Exercise 4: Simple To-Do List
 let tasks = [];
 
 function addTask() {
